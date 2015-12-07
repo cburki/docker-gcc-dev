@@ -30,6 +30,9 @@ RUN chmod a+x /etc/s6/.s6-svscan/finish /etc/s6/sshd/run /etc/s6/sshd/finish
 COPY scripts/* /opt/
 RUN chmod a+x /opt/setupusers.sh /opt/setupgit.sh /opt/setupenv.sh
 
+# install compiler configs
+COPY configs/platform.mk /opt/
+
 # add bash prompt
 RUN echo 'PS1="\[\e[00;36m\][\$?]\[\e[0m\]\[\e[00;30m\] \[\e[0m\]\[\e[00;32m\]\u@\h\[\e[0m\]\[\e[00;30m\] \[\e[0m\]\[\e[00;34m\][\W]\[\e[0m\]\[\e[00;30m\] \\$ \[\e[0m\]"' >> /root/.bashrc
 
