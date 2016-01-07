@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p /opt/build
 mkdir -p /opt/root/i686-linux
 
 if [ -n "${SSH_USER}" ]; then
