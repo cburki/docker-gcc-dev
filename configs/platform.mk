@@ -1,4 +1,4 @@
-CXX := g++                                                                                                                                               
-CC := gcc                                                                                                                                                
-AR := ar                                                                                                                                                 
+CXX := g++
+CC := gcc
+AR := ar
 LD := ld
