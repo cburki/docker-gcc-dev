@@ -4,6 +4,7 @@ MAINTAINER Christophe Burki, christophe@burkionline.net
 # Install system requirements
 RUN apt-get update && apt-get install -y \
     emacs24-nox \
+    less \
     locales \
     openssh-server \
     pwgen
@@ -33,7 +34,8 @@ RUN chmod a+x /opt/setupusers.sh /opt/setupgit.sh /opt/setupenv.sh
 # install compiler configs
 COPY configs/platform.mk /opt/
 
-# add bash prompt
+# add pager and bash prompt
+RUN echo 'PAGER=less' >> /root/.bashrc
 RUN echo 'PS1="\[\e[00;36m\][\$?]\[\e[0m\]\[\e[00;30m\] \[\e[0m\]\[\e[00;32m\]\u@\h\[\e[0m\]\[\e[00;30m\] \[\e[0m\]\[\e[00;34m\][\W]\[\e[0m\]\[\e[00;30m\] \\$ \[\e[0m\]"' >> /root/.bashrc
 
 EXPOSE 22
