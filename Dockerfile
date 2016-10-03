@@ -39,11 +39,10 @@ RUN chmod a+x /opt/setupusers.sh /opt/setupgit.sh /opt/setupenv.sh
 COPY configs/platform.mk /opt/
 
 # setup shell environment
+COPY configs/bashrc /root/.bashrc
 COPY configs/tmux/tmux.conf /root/.tmux.conf
 RUN echo 'export PAGER=less' >> /root/.bashrc && \
-    echo 'export TERM=xterm' >> /root/.bashrc && \
-    echo 'PS1="\[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[32m\]:\[\e[m\]\[\e[34m\]\W\[\e[m\] \[\e[34m\]\\$\[\e[m\] "' >> /root/.bashrc && \
-    echo '#[ -z "$TMUX" ] && command -v tmux > /dev/null && tmux && exit 0' >> /root/.bashrc
+    echo 'export TERM=xterm' >> /root/.bashrc
 
 EXPOSE 22
 
