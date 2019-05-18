@@ -1,5 +1,5 @@
 FROM gcc:latest
-MAINTAINER Christophe Burki, christophe.burki@gmail.com
+LABEL maintainer="Christophe Burki, christophe.burki@protonmail.ch"
 
 # Install system requirements
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     less \
     locales \
     openssh-server \
-    pwgen \ 
+    pwgen \
     tmux \
     xterm && \
     apt-get autoremove -y && \
